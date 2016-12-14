@@ -1,0 +1,29 @@
+﻿<style>
+    md-list {
+        padding-top: 0;
+    }
+</style>
+
+<div layout="column">
+    <div layout="row" layout-align="center center">
+        <md-list flex="85" class="item-lists">
+            <md-toolbar class="md-hue-1" layout="row" layout-align="start center">
+                <span style="padding: 0 16px 0 16px">Warehouses</span>
+            </md-toolbar>
+            <md-list-item class="list-item" ng-repeat="warehouse in controller.warehouses track by $index" ui-sref="warehouse({id: warehouse.id})">
+                - {{warehouse.name}}
+            </md-list-item>
+            <md-list-item>
+                <md-input-container>
+                    <label>Warehouse Name</label>
+                    <input ng-model="warehouse.name" />
+                </md-input-container>
+            </md-list-item>
+            <md-list-item>
+                <md-button class="md-raised md-primary" ng-click="controller.postNewWarehouse(warehouse)">
+                    Add
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </div>
+</div>
